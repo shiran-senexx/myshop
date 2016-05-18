@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="Application-style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Rouge+Script' rel='stylesheet' type='text/css'>
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script type="text/javascript" src="products.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+
+  <body ng-controller="StoreController as store">
+    <!--  Store Header  -->
+    <div id="topBarHeader">
+          <nav class="navbar navbar-default navbar-fixed-top">
+              <div id="titleContainer">
+                <h1 class="text-center main-title">Flatlander Crafted Gems</h1>
+              </div>
+
+             <div id="containerNavBtn">
+              <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation"><a href="#">Profile</a></li>
+                <li role="presentation"><a href="#">Messages</a></li>
+              </ul>
+            </div>
+          </nav>
+
+  </div>
+
+    <!--  Products Container  -->
+    <div class="container-fluid list-group-item">
+  <div ng-repeat="product in store.products">
+    <div class="row" ng-if="$index<store.products.length/4-1">
+            <div ng-repeat="product in store.products">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                  <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+                  <!-- Image Gallery  -->
+                  <product-gallery></product-gallery>
+                  <!-- Product Tabs  -->
+                  <product-tabs></product-tabs>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+  </body>
+</html>
